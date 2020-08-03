@@ -11,10 +11,10 @@ const signToken = user => {
   return JWT.sign(
     {
       iss: 'CodeWorkr',
-      sub: user.id,
+      sub: user._id,
     },
     jwtSecret,
-    { expiresIn: '2h' }
+    { expiresIn: '8h' }
   );
 };
 

@@ -25,6 +25,7 @@ passport.use(
         const user = await User.findById(payload.sub);
 
         if (!user) {
+          console.log('tut error');
           return done(null, false);
         }
         req.user = user;

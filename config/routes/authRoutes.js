@@ -10,7 +10,7 @@ const {
   forgot,
   reset,
 } = require('../../controllers').authControllers;
-const Users = require('../../models/user');
+const User = require('../../models/user');
 
 router.post('/register', signUp);
 
@@ -32,17 +32,17 @@ router.get('/logout', passportJWT, signOut);
 router.post('/forgot', forgot);
 
 router.post('/', passportJWT, isAuthenticatedAdmin, (req, res) => {
-  Users.find({}).then(users => {
+  User.find({}).then(users => {
     return res.status(200).json(users);
   });
 });
 
 router.delete('/:id', passportJWT, isAuthenticatedAdmin, (req, res) => {
-  Users.findOneAndDelete({
+  User.findOneAndDelete({
     _id: req.params.id,
   })
     .then(() => {
-      res.status(200).json({ status: 'ok' });
+      User.find({}).then(users => res.status(200).json(users));
     })
     .catch(err => {
       res.status(401);
