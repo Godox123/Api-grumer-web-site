@@ -4,4 +4,5 @@ module.exports = {
   reservationRoutes: require('./routes').reservationRoutes,
   commentsRoutes: require('./routes').commentsRoutes,
   portfolioRoutes: require('./routes').portfolioRoutes,
+  servicesRoutes: require('./routes').servicesRoutes,
 };

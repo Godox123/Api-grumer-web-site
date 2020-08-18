@@ -8,6 +8,7 @@ const {
   reservationRoutes,
   commentsRoutes,
   portfolioRoutes,
+  servicesRoutes,
 } = require('./config');
 
 const PassportAuth = require('./passport/passport-config');
@@ -42,5 +43,6 @@ app.use('/auth', authRoutes);
 app.use('/reservations', reservationRoutes);
 app.use('/comments', commentsRoutes);
 app.use('/portfolio', portfolioRoutes);
+app.use('/services', servicesRoutes);
 
 app.listen(port, () => console.log('Server started.'));
