@@ -10,15 +10,30 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  let reservation = {
-    username: req.body.username,
-    email: req.body.email,
-    phone: req.body.phone,
-    selectDate: req.body.selectDate,
-    selectTime: req.body.selectTime,
-    selectService: req.body.selectService,
-    creation_dt: new Date(),
-  };
+  let reservation;
+  if (req.body.photoUrl) {
+    reservation = {
+      username: req.body.username,
+      email: req.body.email,
+      phone: req.body.phone,
+      selectDate: req.body.selectDate,
+      selectTime: req.body.selectTime,
+      selectService: req.body.selectService,
+      photoUrl: req.body.photoUrl,
+      creation_dt: new Date(),
+    };
+  } else {
+    reservation = {
+      username: req.body.username,
+      email: req.body.email,
+      phone: req.body.phone,
+      selectDate: req.body.selectDate,
+      selectTime: req.body.selectTime,
+      selectService: req.body.selectService,
+      creation_dt: new Date(),
+    };
+  }
+
   let newReservation = new Reservation(reservation);
   newReservation
     .save()
