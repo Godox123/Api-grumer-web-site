@@ -19,6 +19,7 @@ router.post('/', (req, res) => {
       selectDate: req.body.selectDate,
       selectTime: req.body.selectTime,
       selectService: req.body.selectService,
+      price: req.body.price,
       photoUrl: req.body.photoUrl,
       creation_dt: new Date(),
     };
@@ -29,6 +30,7 @@ router.post('/', (req, res) => {
       phone: req.body.phone,
       selectDate: req.body.selectDate,
       selectTime: req.body.selectTime,
+      price: req.body.price,
       selectService: req.body.selectService,
       creation_dt: new Date(),
     };

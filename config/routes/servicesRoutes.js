@@ -29,7 +29,7 @@ const upload = multer({
 
 router.get('/', (req, res) => {
   Services.find()
-    .select('servicename photoUrl description')
+    .select('servicename photoUrl description price')
     .exec()
     .then(services => {
       return res.status(200).json(services);
