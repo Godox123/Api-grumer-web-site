@@ -4,9 +4,11 @@ const Reservation = require('../../models/reservation.model');
 const passportJWT = require('../../middlewears/auth.middlewears');
 
 router.get('/', (req, res) => {
-  Reservation.find({}).then(reservations => {
-    return res.status(200).json(reservations);
-  });
+  Reservation.find({})
+    .then(reservations => {
+      return res.status(200).json(reservations);
+    })
+    .catch(err => console.lob(err.message));
 });
 
 router.post('/', (req, res) => {
