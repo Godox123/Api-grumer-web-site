@@ -59,6 +59,7 @@ router.patch('/:id', passportJWT, (req, res) => {
       console.log(err);
     });
 });
+
 router.delete('/:id', passportJWT, (req, res) => {
   Reservation.findOneAndDelete({
     _id: req.params.id,
